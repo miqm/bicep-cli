@@ -1,11 +1,11 @@
-FROM python:3.9
+FROM python:3.9-slim
 
 LABEL maintainer="miqm"
 
-ENTRYPOINT /bin/bash
+CMD ["/bin/bash"]
 
 RUN apt-get update \
- && apt-get install -y bash ssh ca-certificates jq curl openssl perl git zip bash-completion apt-transport-https lsb-release gnupg \
+ && apt-get install -y ssh ca-certificates jq curl openssl perl git zip bash-completion apt-transport-https lsb-release gnupg \
  && update-ca-certificates
 
 RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
@@ -17,4 +17,4 @@ RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${
 
 ARG CLI_VERSION=2.20.0
 
-RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && az bicep install
+RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && rm -rf /var/lib/apt/lists/* && az bicep install
