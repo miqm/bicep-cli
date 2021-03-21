@@ -19,6 +19,6 @@ ARG CLI_VERSION=2.20.0
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && rm -rf /var/lib/apt/lists/*
 
 ARG BICEP_VERSION=0.3.126
-RUN az bicep install --version=${BICEP_VERSION}
+RUN az bicep install --version=v${BICEP_VERSION}
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
