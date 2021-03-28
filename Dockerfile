@@ -12,10 +12,10 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
 
 RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ buster main" | tee /etc/apt/sources.list.d/azure-cli.list
 
-ARG YQ_VERSION=4.6.1
+ARG YQ_VERSION=4.6.3
 RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/bin/yq
 
-ARG CLI_VERSION=2.20.0
+ARG CLI_VERSION=2.21.0
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && rm -rf /var/lib/apt/lists/*
 
 ARG BICEP_VERSION=0.3.126
