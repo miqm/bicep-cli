@@ -18,7 +18,7 @@ RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${
 ARG CLI_VERSION=2.21.0
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && rm -rf /var/lib/apt/lists/*
 
-ARG BICEP_VERSION=0.3.126
+ARG BICEP_VERSION=0.3.255
 RUN az bicep install --version=v${BICEP_VERSION}
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
