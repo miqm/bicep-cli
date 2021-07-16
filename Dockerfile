@@ -17,13 +17,13 @@ RUN wget -O azcopy_v${AZCOPY_VERSION}.tar.gz https://aka.ms/downloadazcopy-v${AZ
  && tar -xf azcopy_v${AZCOPY_VERSION}.tar.gz --strip-components=1 \
  && cp ./azcopy /usr/local/bin/
 
-ARG YQ_VERSION=4.9.6
+ARG YQ_VERSION=4.10.0
 RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/bin/yq
 
-ARG CLI_VERSION=2.25.0
+ARG CLI_VERSION=2.26.1
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && rm -rf /var/lib/apt/lists/*
 
-ARG BICEP_VERSION=0.4.63
+ARG BICEP_VERSION=0.4.412
 RUN az bicep install --version=v${BICEP_VERSION}
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
