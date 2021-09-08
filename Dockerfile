@@ -25,5 +25,6 @@ RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~buster && rm
 
 ARG BICEP_VERSION=0.4.613
 RUN az bicep install --version=v${BICEP_VERSION}
+RUN az extension add --name application-insights
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
