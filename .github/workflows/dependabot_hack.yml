@@ -1,0 +1,21 @@
+---
+# See ../DEPENDENCIES.md#workaround-for-other-dependencies
+name: Dependabot hack
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - never-trigger-this-dependabot-hack-workflow
+
+jobs:
+
+  dependabot_hack:
+    name: Ensure dependabot version checks
+    runs-on: ubuntu-20.04
+    steps:    
+      # Dockerfile:
+      - uses: azure/bicep@v0.4.613
+      - uses: azure/azure-cli@azure-cli-2.28.0
+      - uses: mikefarah/yq@v4.13.3
+      - uses: Azure/azure-storage-azcopy@v10.12.2
+      # ci/bicep-cli.yml:
+      - uses: moby/moby@v20.10.8

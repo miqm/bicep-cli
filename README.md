@@ -1,6 +1,6 @@
 # Bicep CLI
 
-[![Build Status](https://dev.azure.com/miqm/github/_apis/build/status/bicep-cli?branchName=main)](https://dev.azure.com/miqm/github/_build/latest?definitionId=5&branchName=main)
+[![Build Status](https://dev.azure.com/miqm/github/_apis/build/status/miqm.bicep-cli?branchName=main)](https://dev.azure.com/miqm/github/_build/latest?definitionId=6&branchName=main)
 
 https://hub.docker.com/r/miqm/bicep-cli
 
