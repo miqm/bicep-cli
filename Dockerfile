@@ -20,7 +20,7 @@ RUN wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_M
 ARG YQ_VERSION=4.13.3
 RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/bin/yq
 
-ARG CLI_VERSION=2.28.0
+ARG CLI_VERSION=2.29.0
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) 
 
 RUN rm -rf /var/lib/apt/lists/*
