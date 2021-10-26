@@ -18,4 +18,4 @@ jobs:
       - uses: mikefarah/yq@v4.13.5
       - uses: Azure/azure-storage-azcopy@v10.12.2
       # ci/bicep-cli.yml:
-      - uses: moby/moby@v20.10.9
+      - uses: moby/moby@v20.10.10
