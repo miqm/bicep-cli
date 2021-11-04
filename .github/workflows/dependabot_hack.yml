@@ -16,6 +16,6 @@ jobs:
       - uses: azure/bicep@v0.4.1008
       - uses: azure/azure-cli@azure-cli-2.29.1
       - uses: mikefarah/yq@v4.13.5
-      - uses: Azure/azure-storage-azcopy@v10.12.2
+      - uses: Azure/azure-storage-azcopy@v10.13.0
       # ci/bicep-cli.yml:
       - uses: moby/moby@v20.10.10
