@@ -17,7 +17,7 @@ RUN wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_M
  && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
  && cp ./azcopy /usr/local/bin/
 
-ARG YQ_VERSION=4.14.1
+ARG YQ_VERSION=4.14.2
 RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/bin/yq
 
 ARG CLI_VERSION=2.30.0
