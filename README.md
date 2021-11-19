@@ -25,3 +25,4 @@ Preinstalled tools:
 * gnupg 
 * wget
 * busybox
+* bc
