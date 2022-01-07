@@ -28,7 +28,8 @@ RUN mkdir -p /usr/local/lib/tfenv \
  && curl -o /tmp/tfenv.tar.gz -L https://github.com/tfutils/tfenv/archive/refs/tags/v${TFENV_VERSION}.tar.gz \
  && tar -zxf /tmp/tfenv.tar.gz -C /usr/local/lib/tfenv --strip-components=1 \
  && rm /tmp/tfenv.tar.gz \
- && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/
+ && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
+ && tfenv install && tfenv use
 
 ARG CLI_VERSION=2.31.0
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) 
