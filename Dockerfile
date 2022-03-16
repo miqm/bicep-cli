@@ -12,7 +12,7 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
 RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list
 
 ARG AZCOPY_VERSION_MAJOR=10
-ARG AZCOPY_VERSION=10.13.0
+ARG AZCOPY_VERSION=10.14.1
 RUN wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_MAJOR}-linux \
  && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
  && cp ./azcopy /usr/local/bin/
