@@ -31,7 +31,7 @@ RUN mkdir -p /usr/local/lib/tfenv \
  && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
  && tfenv install && tfenv use
 
-ARG CLI_VERSION=2.33.1
+ARG CLI_VERSION=2.34.1
 RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) 
 
 RUN rm -rf /var/lib/apt/lists/*
