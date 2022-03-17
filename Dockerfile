@@ -1,4 +1,4 @@
-FROM python:3.10.3-slim
+FROM python:3.11.0a6-slim
 
 LABEL maintainer="miqm"
 
