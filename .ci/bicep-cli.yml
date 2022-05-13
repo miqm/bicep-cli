@@ -18,7 +18,7 @@ jobs:
   - task: DockerInstaller@0
     displayName: Install Docker
     inputs:
-      dockerVersion: 20.10.15
+      dockerVersion: 20.10.16
       releaseType: stable
   - task: Docker@2
     displayName: BuildAndPush
