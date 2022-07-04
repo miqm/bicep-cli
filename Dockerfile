@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_releas
 
 RUN rm -rf /var/lib/apt/lists/*
 
-ARG BICEP_VERSION=0.7.4
+ARG BICEP_VERSION=0.8.2
 RUN az bicep install --version=v${BICEP_VERSION} && cp $HOME/.azure/bin/bicep /usr/bin/bicep
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
