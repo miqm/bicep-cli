@@ -23,7 +23,7 @@ RUN curl -o /usr/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${
 ARG SPRUCE_VERSION=1.29.0
 RUN curl -o /usr/bin/spruce -L https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERSION}/spruce-linux-amd64 && chmod +x /usr/bin/spruce
 
-ARG TFENV_VERSION=2.3.0
+ARG TFENV_VERSION=3.0.0
 RUN mkdir -p /usr/local/lib/tfenv \
  && curl -o /tmp/tfenv.tar.gz -L https://github.com/tfutils/tfenv/archive/refs/tags/v${TFENV_VERSION}.tar.gz \
  && tar -zxf /tmp/tfenv.tar.gz -C /usr/local/lib/tfenv --strip-components=1 \
