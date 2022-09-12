@@ -20,4 +20,4 @@ jobs:
       - uses: Azure/azure-storage-azcopy@v10.16.0
       - uses: tfutils/tfenv@v3.0.0
       # ci/bicep-cli.yml:
-      - uses: moby/moby@v20.10.17
+      - uses: moby/moby@v20.10.18
