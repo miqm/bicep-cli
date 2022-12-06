@@ -28,7 +28,7 @@ jobs:
            FILE_TO_COMMIT: Dockerfile
            DESTINATION_BRANCH: ${{ github.head_ref }}
         run: |
-          git add .
+          git add $FILE_TO_COMMIT
           if ! git diff-index --quiet HEAD --; then
             export MESSAGE="Update $FILE_TO_COMMIT"
             export SHA=$( git rev-parse $DESTINATION_BRANCH:$FILE_TO_COMMIT )
