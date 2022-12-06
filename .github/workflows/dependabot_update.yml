@@ -1,19 +1,24 @@
 name: Dependabot update Dockerfile
 on:
-  push:
+  pull_request_target:
+    types: [synchronize]
     branches:
-      - 'dependabot/**'
+      - main
     paths:
-      - '.github/workflows/dependabot_hack.yml'
+      - ".github/workflows/dependabot_hack.yml"
 jobs:
   updateDockerfile:
+    if: ${{ github.actor == 'dependabot[bot]' }}
     name: UpdateDockerfile
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10.8'
+          python-version: "3.10.8"
       - name: run updateDockerfile.py
         run: |
           pip install -r requirements.txt  
