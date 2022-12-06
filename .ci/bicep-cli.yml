@@ -1,7 +1,11 @@
 trigger:
+  batch: true
   branches:
     include:
     - main
+  paths:
+    include:
+    - Dockerfile
 resources:
   repositories:
   - repository: self
@@ -31,4 +35,3 @@ jobs:
         latest
       addPipelineData: false
       addBaseImageData: false
-...
