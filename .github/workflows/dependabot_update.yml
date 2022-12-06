@@ -31,6 +31,7 @@ jobs:
           git add $FILE_TO_COMMIT
           if ! git diff-index --quiet HEAD --; then
             export MESSAGE="Update $FILE_TO_COMMIT"
+            git fetch $DESTINATION_BRANCH:$DESTINATION_BRANCH
             export SHA=$( git rev-parse $DESTINATION_BRANCH:$FILE_TO_COMMIT )
             export CONTENT=$( base64 -i $FILE_TO_COMMIT )
             gh api --method PUT /repos/:owner/:repo/contents/$FILE_TO_COMMIT \
