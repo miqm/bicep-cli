@@ -35,6 +35,6 @@ RUN apt-get update \
     && az extension add --name managementpartner \
     && az extension add --name front-door \
     && az aks install-cli \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
