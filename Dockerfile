@@ -17,6 +17,7 @@ RUN apt-get update \
     && update-ca-certificates \
     && curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list \
+    && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) \
     && wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_MAJOR}-linux \
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && cp ./azcopy /usr/local/bin/ \
@@ -28,7 +29,6 @@ RUN apt-get update \
     && rm /tmp/tfenv.tar.gz \
     && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
     && tfenv install && tfenv use \
-    && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) \
     && az bicep install --version=v${BICEP_VERSION} \
     && cp $HOME/.azure/bin/bicep /usr/bin/bicep \
     && az extension add --name application-insights \
