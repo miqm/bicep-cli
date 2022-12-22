@@ -47,7 +47,7 @@ jobs:
       addBaseImageData: false
   - task: Docker@2
     displayName: Push
-    condition: not(eq(variables['Build.Reason'], 'PullRequest'))
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
     inputs:
       command: push
       containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
