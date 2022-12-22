@@ -15,8 +15,6 @@ ARG BICEP_VERSION=0.13.1
 RUN apt-get update \
     && apt-get install -y ssh ca-certificates jq curl openssl perl git zip bash-completion apt-transport-https lsb-release gnupg wget busybox bc \
     && update-ca-certificates \
-    && azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) \
-    && rm -rf /var/lib/apt/lists/* \
     && curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list \
     && wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_MAJOR}-linux \
@@ -30,11 +28,13 @@ RUN apt-get update \
     && rm /tmp/tfenv.tar.gz \
     && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
     && tfenv install && tfenv use \
+    && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) \
     && az bicep install --version=v${BICEP_VERSION} \
     && cp $HOME/.azure/bin/bicep /usr/bin/bicep \
     && az extension add --name application-insights \
     && az extension add --name managementpartner \
     && az extension add --name front-door \
-    && az aks install-cli
+    && az aks install-cli \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
