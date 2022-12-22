@@ -6,11 +6,20 @@ trigger:
   paths:
     include:
     - Dockerfile
+
+pr:
+  autoCancel: true
+  branches:
+    include:
+    - main
+  drafts: false
+
 resources:
   repositories:
   - repository: self
     type: git
     ref: main
+
 jobs:
 - job: Main
   displayName: build and push
@@ -25,11 +34,24 @@ jobs:
       dockerVersion: 20.10.22
       releaseType: stable
   - task: Docker@2
-    displayName: BuildAndPush
+    displayName: Build
     inputs:
+      command: build
       containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
       repository: miqm/bicep-cli
       Dockerfile: Dockerfile
+      tags: |
+        $(Build.BuildNumber)
+        latest
+      addPipelineData: false
+      addBaseImageData: false
+  - task: Docker@2
+    displayName: Push
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+    inputs:
+      command: push
+      containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
+      repository: miqm/bicep-cli
       tags: |
         $(Build.BuildNumber)
         latest
