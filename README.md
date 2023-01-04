@@ -14,6 +14,9 @@ Preinstalled tools:
 * [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) - a command-line utility that you can use to copy blobs or files to or from a storage account.
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) - a set of commands used to create and manage Azure resources.
 * [Azure Bicep](https://github.com/Azure/bicep) - a declarative language for describing and deploying Azure resources.
+* [Kubectl](https://github.com/kubernetes/kubernetes) - The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
+* [Kubelogin](https://github.com/Azure/kubelogin) - A Kubernetes credential (exec) plugin implementing azure authentication
+* [Helm](https://github.com/helm/helm) - The Kubernetes Package Manager
 * jq
 * curl
 * openssl
@@ -27,3 +30,5 @@ Preinstalled tools:
 * wget
 * busybox
 * bc
+* iputils-tracepath
+* iputils-ping
