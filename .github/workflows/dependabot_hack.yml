@@ -19,5 +19,8 @@ jobs:
       - uses: geofffranks/spruce@v1.29.0
       - uses: Azure/azure-storage-azcopy@v10.16.2
       - uses: tfutils/tfenv@v3.0.0
+      - uses: kubernetes/kubernetes@v1.26.0
+      - uses: helm/helm@v3.10.3
+      - uses: Azure/kubelogin@v0.0.25
       # ci/bicep-cli.yml:
       - uses: moby/moby@v20.10.22
