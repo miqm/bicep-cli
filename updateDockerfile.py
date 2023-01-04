@@ -16,6 +16,9 @@ with open(".github/workflows/dependabot_hack.yml", 'r') as dependencyStream:
         dockerArgs['AZCOPY_VERSION'] = version =dependency[1][1:]
         dockerArgs['AZCOPY_VERSION_MAJOR'] = version.split('.')[0]
       case 'tfutils/tfenv':  dockerArgs['TFENV_VERSION'] = dependency[1][1:]
+      case 'kubernetes/kubernetes':  dockerArgs['KUBECTL_VERSION'] = dependency[1][1:]
+      case 'Azure/kubelogin':  dockerArgs['KUBELOGIN_VERSION'] = dependency[1][1:]
+      case 'helm/helm':  dockerArgs['HELM_VERSION'] = dependency[1][1:]
   with fileinput.FileInput('Dockerfile', inplace=True) as file:
     for line in file:
       if line.startswith('ARG'):
