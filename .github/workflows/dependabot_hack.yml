@@ -16,7 +16,7 @@ jobs:
       - uses: azure/bicep@v0.13.1
       - uses: azure/azure-cli@azure-cli-2.43.0
       - uses: mikefarah/yq@v4.30.6
-      - uses: geofffranks/spruce@v1.29.0
+      - uses: geofffranks/spruce@v1.30.0
       - uses: Azure/azure-storage-azcopy@v10.16.2
       - uses: tfutils/tfenv@v3.0.0
       - uses: kubernetes/kubernetes@v1.26.0
