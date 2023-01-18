@@ -14,7 +14,7 @@ jobs:
     steps:    
       # Dockerfile:
       - uses: azure/bicep@v0.13.1
-      - uses: azure/azure-cli@azure-cli-2.43.0
+      - uses: azure/azure-cli@azure-cli-2.44.1
       - uses: mikefarah/yq@v4.30.8
       - uses: geofffranks/spruce@v1.30.0
       - uses: Azure/azure-storage-azcopy@v10.16.2
