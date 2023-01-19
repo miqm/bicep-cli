@@ -12,6 +12,9 @@ pr:
   branches:
     include:
     - main
+  paths:
+    include:
+    - Dockerfile
   drafts: false
 
 resources:
