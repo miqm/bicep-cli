@@ -20,7 +20,7 @@ jobs:
       - uses: Azure/azure-storage-azcopy@v10.17.0
       - uses: tfutils/tfenv@v3.0.0
       - uses: kubernetes/kubernetes@v1.26.1
-      - uses: helm/helm@v3.11.0
+      - uses: helm/helm@v3.11.1
       - uses: Azure/kubelogin@v0.0.27
       # ci/bicep-cli.yml:
       - uses: moby/moby@v20.10.23
