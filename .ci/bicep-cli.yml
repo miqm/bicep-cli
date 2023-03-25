@@ -2,61 +2,74 @@ trigger:
   batch: true
   branches:
     include:
-    - main
+      - main
+  tags:
+    include:
+      - v*
   paths:
     include:
-    - Dockerfile
+      - Dockerfile
 
 pr:
   autoCancel: true
   branches:
     include:
-    - main
+      - main
   paths:
     include:
-    - Dockerfile
+      - Dockerfile
   drafts: false
 
 resources:
   repositories:
-  - repository: self
-    type: git
-    ref: main
+    - repository: self
+      type: git
+      ref: main
 
 jobs:
-- job: Main
-  displayName: build and push
-  pool:
-    vmImage: ubuntu-20.04
-  steps:
-  - checkout: self
-    clean: true
-  - task: DockerInstaller@0
-    displayName: Install Docker
-    inputs:
-      dockerVersion: 20.10.23
-      releaseType: stable
-  - task: Docker@2
-    displayName: Build
-    inputs:
-      command: build
-      containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
-      repository: miqm/bicep-cli
-      Dockerfile: Dockerfile
-      tags: |
-        $(Build.BuildNumber)
-        latest
-      addPipelineData: false
-      addBaseImageData: false
-  - task: Docker@2
-    displayName: Push
-    condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
-    inputs:
-      command: push
-      containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
-      repository: miqm/bicep-cli
-      tags: |
-        $(Build.BuildNumber)
-        latest
-      addPipelineData: false
-      addBaseImageData: false
+  - job: Main
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
+      displayName: Publish
+    ${{ else }}:
+      displayName: Build
+    pool:
+      vmImage: ubuntu-20.04
+    steps:
+      - checkout: self
+        clean: true
+      - task: DockerInstaller@0
+        displayName: Install Docker
+        inputs:
+          dockerVersion: 20.10.23
+          releaseType: stable
+      - ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
+        - script: |
+            echo "##vso[task.setvariable variable=tag1]$(echo "$(Build.SourceBranchName)" | cut -d '.' -f 1-2)"
+            echo "##vso[task.setvariable variable=tag2]$(echo "$(Build.SourceBranchName)" | cut -d '.' -f 1-3)"
+            echo "##vso[task.setvariable variable=tag3]$(Build.SourceBranchName)"
+          displayName: Set tags
+        - task: Docker@2
+          displayName: Build and Push
+          inputs:
+            command: buildAndPush
+            containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
+            repository: miqm/bicep-cli
+            tags: |
+              latest
+              $(tag1)
+              $(tag2)
+              $(tag3)
+            addPipelineData: false
+            addBaseImageData: false
+      - ${{ else }}:
+        - task: Docker@2
+          displayName: Build
+          inputs:
+            command: build
+            containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
+            repository: miqm/bicep-cli
+            Dockerfile: Dockerfile
+            tags: |
+              latest
+            addPipelineData: false
+            addBaseImageData: false
