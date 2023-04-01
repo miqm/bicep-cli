@@ -21,6 +21,6 @@ jobs:
       - uses: tfutils/tfenv@v3.0.0
       - uses: kubernetes/kubernetes@v1.26.2
       - uses: helm/helm@v3.11.2
-      - uses: Azure/kubelogin@v0.0.27
+      - uses: Azure/kubelogin@v0.0.28
       # ci/bicep-cli.yml:
       - uses: moby/moby@v20.10.23
