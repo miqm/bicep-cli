@@ -14,7 +14,7 @@ RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://ak
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && mv ./azcopy /usr/local/bin/ && cd / && rm -rf /tmp/azcopy
 
-ARG YQ_VERSION=4.31.1
+ARG YQ_VERSION=4.31.2
 RUN curl -o /usr/local/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/local/bin/yq
 
 ARG SPRUCE_VERSION=1.30.0
@@ -39,7 +39,7 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
     && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG BICEP_VERSION=0.13.1
-ARG KUBECTL_VERSION=1.26.1
+ARG KUBECTL_VERSION=1.26.2
 ARG KUBELOGIN_VERSION=0.0.27
 
 RUN az bicep install --version=v${BICEP_VERSION} \
