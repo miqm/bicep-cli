@@ -23,4 +23,4 @@ jobs:
       - uses: helm/helm@v3.11.2
       - uses: Azure/kubelogin@v0.0.28
       # ci/bicep-cli.yml:
-      - uses: moby/moby@v20.10.23
+      - uses: moby/moby@v20.10.24
