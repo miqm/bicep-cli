@@ -15,7 +15,7 @@ jobs:
       # Dockerfile:
       - uses: azure/bicep@v0.15.31
       - uses: azure/azure-cli@azure-cli-2.45.0
-      - uses: mikefarah/yq@v4.33.2
+      - uses: mikefarah/yq@v4.33.3
       - uses: geofffranks/spruce@v1.30.2
       - uses: Azure/azure-storage-azcopy@v10.18.0
       - uses: tfutils/tfenv@v3.0.0
