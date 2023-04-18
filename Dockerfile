@@ -39,7 +39,7 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
     && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG BICEP_VERSION=0.16.2
-ARG KUBECTL_VERSION=1.26.3
+ARG KUBECTL_VERSION=1.26.4
 ARG KUBELOGIN_VERSION=0.0.28
 
 RUN az bicep install --version=v${BICEP_VERSION} \
