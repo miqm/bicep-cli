@@ -8,8 +8,8 @@ RUN apt-get update \
     && apt-get install -y ssh ca-certificates jq curl openssl perl git zip bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \
     && update-ca-certificates && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ARG AZCOPY_VERSION_MAJOR=10
-ARG AZCOPY_VERSION=10.18.0
+ARG AZCOPY_VERSION_MAJOR=0
+ARG AZCOPY_VERSION=0.18.1
 RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_MAJOR}-linux \
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && mv ./azcopy /usr/local/bin/ && cd / && rm -rf /tmp/azcopy
