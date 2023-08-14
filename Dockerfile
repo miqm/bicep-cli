@@ -9,7 +9,7 @@ RUN apt-get update \
     && update-ca-certificates && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG AZCOPY_VERSION_MAJOR=10
-ARG AZCOPY_VERSION=10.20.0
+ARG AZCOPY_VERSION=10.20.1
 RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_MAJOR}-linux \
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && mv ./azcopy /usr/local/bin/ && cd / && rm -rf /tmp/azcopy
