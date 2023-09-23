@@ -17,7 +17,7 @@ RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://ak
 ARG YQ_VERSION=4.35.1
 RUN curl -o /usr/local/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/local/bin/yq
 
-ARG SPRUCE_VERSION=1.30.2
+ARG SPRUCE_VERSION=1.31.0
 RUN curl -o /usr/local/bin/spruce -L https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERSION}/spruce-linux-amd64 && chmod +x /usr/local/bin/spruce
 
 ARG TFENV_VERSION=3.0.0
