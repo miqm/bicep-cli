@@ -40,7 +40,7 @@ jobs:
       - task: DockerInstaller@0
         displayName: Install Docker
         inputs:
-          dockerVersion: 20.10.24
+          dockerVersion: 24.0.6
           releaseType: stable
       - ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
         - script: |
