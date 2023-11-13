@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-20.04
     steps:    
       # Dockerfile:
-      - uses: azure/bicep@v0.22.6
+      - uses: azure/bicep@v0.23.1
       - uses: azure/azure-cli@azure-cli-2.53.1
       - uses: mikefarah/yq@v4.40.1
       - uses: geofffranks/spruce@v1.31.0
       - uses: Azure/azure-storage-azcopy@v10.21.2
       - uses: tfutils/tfenv@v3.0.0
-      - uses: kubernetes/kubernetes@v1.26.7
-      - uses: helm/helm@v3.13.1
+      - uses: kubernetes/kubernetes@v1.28.3
+      - uses: helm/helm@v3.13.2
       - uses: Azure/kubelogin@v0.0.33
       # ci/bicep-cli.yml:
       - uses: docker/cli@v24.0.6
