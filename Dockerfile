@@ -38,8 +38,8 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list \
     && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ARG BICEP_VERSION=0.22.6
-ARG KUBECTL_VERSION=1.26.7
+ARG BICEP_VERSION=0.23.1
+ARG KUBECTL_VERSION=1.27.7
 ARG KUBELOGIN_VERSION=0.0.33
 
 RUN az bicep install --version=v${BICEP_VERSION} \
@@ -53,4 +53,3 @@ RUN az bicep install --version=v${BICEP_VERSION} \
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 \
     AZURE_BICEP_USE_BINARY_FROM_PATH=1
-
