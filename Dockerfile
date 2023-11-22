@@ -1,4 +1,4 @@
-FROM python:3.10.13-slim-bullseye
+FROM python:3.12.0-slim-bullseye
 
 LABEL maintainer="miqm"
 
