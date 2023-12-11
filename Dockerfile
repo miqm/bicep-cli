@@ -9,7 +9,7 @@ RUN apt-get update \
     && update-ca-certificates && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG AZCOPY_VERSION_MAJOR=10
-ARG AZCOPY_VERSION=10.21.2
+ARG AZCOPY_VERSION=10.22.0
 RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://aka.ms/downloadazcopy-v${AZCOPY_VERSION_MAJOR}-linux \
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && mv ./azcopy /usr/local/bin/ && cd / && rm -rf /tmp/azcopy
@@ -33,7 +33,7 @@ RUN curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/
     && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list \
     && apt-get update && apt-get install -y helm && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ARG CLI_VERSION=2.54.0
+ARG CLI_VERSION=2.55.0
 RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list \
     && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) && apt-get clean && rm -rf /var/lib/apt/lists/*
