@@ -23,4 +23,4 @@ jobs:
       - uses: helm/helm@v3.13.3
       - uses: Azure/kubelogin@v0.1.0
       # ci/bicep-cli.yml:
-      - uses: docker/cli@v24.0.6
+      - uses: docker/cli@v25.0.0
