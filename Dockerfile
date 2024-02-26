@@ -14,7 +14,7 @@ RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://ak
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && mv ./azcopy /usr/local/bin/ && cd / && rm -rf /tmp/azcopy
 
-ARG YQ_VERSION=4.41.1
+ARG YQ_VERSION=4.42.1
 RUN curl -o /usr/local/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/local/bin/yq
 
 ARG SPRUCE_VERSION=1.31.0
@@ -28,7 +28,7 @@ RUN mkdir -p /usr/local/lib/tfenv \
     && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
     && tfenv install && tfenv use
 
-ARG HELM_VERSION=3.14.1
+ARG HELM_VERSION=3.14.2
 RUN curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null \
     && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list \
     && apt-get update && apt-get install -y helm && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -40,7 +40,7 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
 
 ARG BICEP_VERSION=0.25.53
 ARG KUBECTL_VERSION=1.28.3
-ARG KUBELOGIN_VERSION=0.1.0
+ARG KUBELOGIN_VERSION=0.1.1
 
 RUN az bicep install --version=v${BICEP_VERSION} \
     && mv $HOME/.azure/bin/bicep /usr/bin/bicep && ln -s /usr/bin/bicep $HOME/.azure/bin/bicep \
