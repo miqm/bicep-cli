@@ -40,7 +40,7 @@ RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |
 
 ARG BICEP_VERSION=0.26.54
 ARG KUBECTL_VERSION=1.28.3
-ARG KUBELOGIN_VERSION=0.1.2
+ARG KUBELOGIN_VERSION=0.1.3
 
 RUN az bicep install --version=v${BICEP_VERSION} \
     && mv $HOME/.azure/bin/bicep /usr/bin/bicep && ln -s /usr/bin/bicep $HOME/.azure/bin/bicep \
