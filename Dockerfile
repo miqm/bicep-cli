@@ -29,19 +29,19 @@ RUN mkdir -p /usr/local/lib/tfenv \
     && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
     && tfenv install && tfenv use
 
-ARG HELM_VERSION=3.15.2
+ARG HELM_VERSION=3.15.3
 RUN curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null \
     && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list \
     && apt-get update && apt-get install -y helm && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ARG CLI_VERSION=2.61.0
+ARG CLI_VERSION=2.62.0
 RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list \
     && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG BICEP_VERSION=0.28.1
 ARG KUBECTL_VERSION=1.28.3
-ARG KUBELOGIN_VERSION=0.1.3
+ARG KUBELOGIN_VERSION=0.1.4
 
 RUN az bicep install --version=v${BICEP_VERSION} \
     && mv $HOME/.azure/bin/bicep /usr/bin/bicep && ln -s /usr/bin/bicep $HOME/.azure/bin/bicep \
