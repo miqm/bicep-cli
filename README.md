@@ -5,7 +5,7 @@
 https://hub.docker.com/r/miqm/bicep-cli
 
 ---
-This docker is based on official [Python 3.10](https://hub.docker.com/_/python) image
+This docker is based on official [Python](https://hub.docker.com/_/python) images.
 
 Preinstalled tools:
 * [YQ](https://github.com/mikefarah/yq) - a lightweight and portable command-line YAML processor.
@@ -23,6 +23,8 @@ Preinstalled tools:
 * perl
 * git
 * zip
+* unzip
+* less
 * bash-completion
 * apt-transport-https
 * lsb-release
