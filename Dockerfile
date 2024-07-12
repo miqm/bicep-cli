@@ -1,11 +1,12 @@
-FROM python:3.10.14-slim-bullseye
+ARG PYTHON_VERSION=latest
+FROM python:${PYTHON_VERSION}
 
 LABEL maintainer="miqm"
 
 CMD ["/bin/bash"]
 
 RUN apt-get update \
-    && apt-get install -y ssh ca-certificates jq curl openssl perl git zip bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \
+    && apt-get install -y --no-install-recommends ssh ca-certificates jq curl openssl perl git zip unzip less bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \
     && update-ca-certificates && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG AZCOPY_VERSION_MAJOR=10
