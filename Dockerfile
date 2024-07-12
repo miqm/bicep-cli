@@ -28,7 +28,7 @@ RUN mkdir -p /usr/local/lib/tfenv \
     && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
     && tfenv install && tfenv use
 
-ARG HELM_VERSION=3.15.2
+ARG HELM_VERSION=3.15.3
 RUN curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null \
     && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list \
     && apt-get update && apt-get install -y helm && apt-get clean && rm -rf /var/lib/apt/lists/*
