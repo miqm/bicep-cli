@@ -15,7 +15,7 @@ RUN mkdir /tmp/azcopy && cd /tmp/azcopy && wget --content-disposition https://ak
     && tar -xf azcopy_linux_amd64_${AZCOPY_VERSION}.tar.gz --strip-components=1 \
     && mv ./azcopy /usr/local/bin/ && cd / && rm -rf /tmp/azcopy
 
-ARG YQ_VERSION=4.44.2
+ARG YQ_VERSION=4.44.3
 RUN curl -o /usr/local/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/local/bin/yq
 
 ARG SPRUCE_VERSION=1.31.0
