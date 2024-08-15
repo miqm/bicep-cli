@@ -17,10 +17,10 @@ jobs:
       - uses: azure/azure-cli@azure-cli-2.63.0
       - uses: mikefarah/yq@v4.44.2
       - uses: geofffranks/spruce@v1.31.0
-      - uses: Azure/azure-storage-azcopy@v10.25.1
+      - uses: Azure/azure-storage-azcopy@v10.26.0
       - uses: tfutils/tfenv@v3.0.0
       - uses: kubernetes/kubernetes@v1.28.3
-      - uses: helm/helm@v3.15.3
+      - uses: helm/helm@v3.15.4
       - uses: Azure/kubelogin@v0.1.4
       # ci/bicep-cli.yml:
       - uses: docker/cli@v24.0.6
