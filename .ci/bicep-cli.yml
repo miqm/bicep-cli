@@ -33,32 +33,32 @@ jobs:
     strategy:
       matrix:
         Python3_10_bookworm:
-          PYTHON_VERSION: "3.10.14-slim-bookworm"
+          PYTHON_VERSION: "3.10-slim-bookworm"
           PYTHON_TAG: "python3.10-bookworm"
           PYTHON_TAG2: "python3.10"
           LATEST: ""
         Python3_10_bullseye:
-          PYTHON_VERSION: "3.10.14-slim-bullseye"
+          PYTHON_VERSION: "3.10-slim-bullseye"
           PYTHON_TAG: "python3.10-bullseye"
           PYTHON_TAG2: ""
           LATEST: ""
         Python3_11_bookworm:
-          PYTHON_VERSION: "3.11.9-slim-bookworm"
+          PYTHON_VERSION: "3.11-slim-bookworm"
           PYTHON_TAG: "python3.11-bookworm"
           PYTHON_TAG2: "python3.11"
           LATEST: ""
         Python3_11_bullseye:
-          PYTHON_VERSION: "3.11.9-slim-bullseye"
+          PYTHON_VERSION: "3.11-slim-bullseye"
           PYTHON_TAG: "python3.11-bullseye"
           PYTHON_TAG2: ""
           LATEST: ""
         Python3_12_bookworm:
-          PYTHON_VERSION: "3.12.4-slim-bookworm"
+          PYTHON_VERSION: "3.12-slim-bookworm"
           PYTHON_TAG: "python3.12-bookworm"
           PYTHON_TAG2: "python3.12"
           LATEST: "latest"
         Python3_12_bullseye:
-          PYTHON_VERSION: "3.12.4-slim-bullseye"
+          PYTHON_VERSION: "3.12-slim-bullseye"
           PYTHON_TAG: "python3.12-bullseye"
           PYTHON_TAG2: ""
           LATEST: ""
