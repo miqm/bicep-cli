@@ -32,12 +32,8 @@ RUN apt-get update \
     && update-ca-certificates && . /etc/os-release \
     && curl -o /usr/local/bin/yq -L https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 && chmod +x /usr/local/bin/yq \
     && curl -o /usr/local/bin/spruce -L https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERSION}/spruce-linux-amd64 && chmod +x /usr/local/bin/spruce \
-    && mkdir -p /opt/tfenv \
-    && curl -o /tmp/tfenv.tar.gz -L https://github.com/tfutils/tfenv/archive/refs/tags/v${TFENV_VERSION}.tar.gz \
-    && tar -zxf /tmp/tfenv.tar.gz -C /usr/local/lib/tfenv --strip-components=1 \
-    && rm /tmp/tfenv.tar.gz \
-    && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ \
-    && tfenv install && tfenv use \
+    && mkdir -p /usr/local/lib/tfenv && curl -o /tmp/tfenv.tar.gz -L https://github.com/tfutils/tfenv/archive/refs/tags/v${TFENV_VERSION}.tar.gz \
+    && tar -zxf /tmp/tfenv.tar.gz -C /usr/local/lib/tfenv --strip-components=1 && rm /tmp/tfenv.tar.gz && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ && tfenv install && tfenv use \
     && curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null \
     && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list \
     && curl -sSL https://packages.microsoft.com/config/debian/$VERSION_ID/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb \
