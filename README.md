@@ -17,6 +17,7 @@ Preinstalled tools:
 * [Kubectl](https://github.com/kubernetes/kubernetes) - The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
 * [Kubelogin](https://github.com/Azure/kubelogin) - A Kubernetes credential (exec) plugin implementing azure authentication
 * [Helm](https://github.com/helm/helm) - The Kubernetes Package Manager
+* [Pulumi](https://github.com/pulumi/pulumi) - Infrastructure as Code in any programming language
 * jq
 * curl
 * openssl
