@@ -7,7 +7,7 @@ CMD ["/bin/bash"]
 
 SHELL ["/bin/bash", "-c"]
 
-ARG YQ_VERSION=4.44.3
+ARG YQ_VERSION=4.44.5
 
 ARG SPRUCE_VERSION=1.31.1
 
@@ -19,13 +19,13 @@ ARG AZCOPY_VERSION=10.27.1
 
 ARG CLI_VERSION=2.66.0
 
-ARG BICEP_VERSION=0.31.34
+ARG BICEP_VERSION=0.31.92
 
 ARG KUBECTL_VERSION=1.28.3
 
 ARG KUBELOGIN_VERSION=0.1.4
 
-ARG PULUMI_VERSION=3.138.0
+ARG PULUMI_VERSION=3.139.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ssh ca-certificates jq curl openssl perl git zip unzip less bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \

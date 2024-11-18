@@ -27,6 +27,8 @@ with open(".github/workflows/dependabot_hack.yml", "r") as dependencyStream:
                 dockerArgs["KUBELOGIN_VERSION"] = dependency[1][1:]
             case "helm/helm":
                 dockerArgs["HELM_VERSION"] = dependency[1][1:]
+            case "pulumi/pulumi":
+                dockerArgs["PULUMI_VERSION"] = dependency[1][1:]
     with fileinput.FileInput("Dockerfile", inplace=True) as file:
         for line in file:
             if line.startswith("ARG"):
