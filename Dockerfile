@@ -7,7 +7,7 @@ CMD ["/bin/bash"]
 
 SHELL ["/bin/bash", "-c"]
 
-ARG YQ_VERSION=4.44.3
+ARG YQ_VERSION=4.44.5
 
 ARG SPRUCE_VERSION=1.31.1
 
