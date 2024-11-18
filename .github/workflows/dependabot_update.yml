@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - ".github/workflows/dependabot_hack.yml"
+      - "updateDockerfile.py"
 jobs:
   updateDockerfile:
     if: ${{ github.actor == 'dependabot[bot]' }}
