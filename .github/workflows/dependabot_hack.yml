@@ -22,6 +22,6 @@ jobs:
       - uses: kubernetes/kubernetes@v1.28.3
       - uses: helm/helm@v3.16.2
       - uses: Azure/kubelogin@v0.1.4
-      - uses: pulumi/pulumi@v3.139.0
+      - uses: pulumi/pulumi@v3.140.0
       # ci/bicep-cli.yml:
       - uses: docker/cli@v24.0.6
