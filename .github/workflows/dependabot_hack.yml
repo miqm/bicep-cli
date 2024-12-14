@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:    
       # Dockerfile:
-      - uses: azure/bicep@v0.31.92
+      - uses: azure/bicep@v0.32.4
       - uses: azure/azure-cli@azure-cli-2.67.0
       - uses: mikefarah/yq@v4.44.6
       - uses: geofffranks/spruce@v1.31.1
