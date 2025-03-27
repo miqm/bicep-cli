@@ -23,9 +23,9 @@ ARG BICEP_VERSION=0.34.44
 
 ARG KUBECTL_VERSION=1.28.3
 
-ARG KUBELOGIN_VERSION=0.1.9
+ARG KUBELOGIN_VERSION=0.2.7
 
-ARG PULUMI_VERSION=3.156.0
+ARG PULUMI_VERSION=3.158.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ssh ca-certificates jq curl openssl perl git zip unzip less bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \
