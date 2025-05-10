@@ -15,13 +15,13 @@ jobs:
       # Dockerfile:
       - uses: azure/bicep@v0.35.1
       - uses: azure/azure-cli@azure-cli-2.70.0
-      - uses: mikefarah/yq@v4.45.1
+      - uses: mikefarah/yq@v4.45.2
       - uses: geofffranks/spruce@v1.31.1
       - uses: Azure/azure-storage-azcopy@v10.29.0
       - uses: tfutils/tfenv@v3.0.0
       - uses: kubernetes/kubernetes@v1.28.3
       - uses: helm/helm@v3.17.2
       - uses: Azure/kubelogin@v0.2.8
-      - uses: pulumi/pulumi@v3.165.0
+      - uses: pulumi/pulumi@v3.167.0
       # ci/bicep-cli.yml:
       - uses: docker/cli@v24.0.6
