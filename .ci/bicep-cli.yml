@@ -67,7 +67,7 @@ jobs:
     ${{ else }}:
       displayName: Build
     pool:
-      vmImage: ubuntu-20.04
+      vmImage: ubuntu-24.04
     steps:
       - checkout: self
         clean: true
