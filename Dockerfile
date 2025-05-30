@@ -15,7 +15,7 @@ ARG TFENV_VERSION=3.0.0
 
 ARG HELM_VERSION=3.17.2
 
-ARG AZCOPY_VERSION=10.29.0
+ARG AZCOPY_VERSION=10.29.1
 
 ARG CLI_VERSION=2.73.0
 
@@ -25,7 +25,7 @@ ARG KUBECTL_VERSION=1.28.3
 
 ARG KUBELOGIN_VERSION=0.2.8
 
-ARG PULUMI_VERSION=3.170.0
+ARG PULUMI_VERSION=3.171.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ssh ca-certificates jq curl openssl perl git zip unzip less bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \
