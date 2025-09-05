@@ -39,8 +39,8 @@ RUN apt-get update \
     && curl -fsSL https://packages.microsoft.com/config/debian/$VERSION_ID/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb \
     && dpkg -i /tmp/packages-microsoft-prod.deb && rm /tmp/packages-microsoft-prod.deb \
     && curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
-    && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -c -s) main" | tee /etc/apt/sources.list.d/azure-cli.list \
-    && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~$(lsb_release -c -s) azcopy=${AZCOPY_VERSION} helm=${HELM_VERSION}-1 && apt-get clean && rm -rf /var/lib/apt/lists/* \
+    && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ bookworm main" | tee /etc/apt/sources.list.d/azure-cli.list \
+    && apt-get update && apt-get install -y azure-cli=${CLI_VERSION}-1~bookworm azcopy=${AZCOPY_VERSION} helm=${HELM_VERSION}-1 && apt-get clean && rm -rf /var/lib/apt/lists/* \
     && az bicep install --version=v${BICEP_VERSION} \
     && mv $HOME/.azure/bin/bicep /usr/bin/bicep && ln -s /usr/bin/bicep $HOME/.azure/bin/bicep \
     && az extension add --name application-insights \
