@@ -14,14 +14,24 @@ jobs:
     steps:    
       # Dockerfile:
       - uses: azure/bicep@v0.37.4
+
       - uses: azure/azure-cli@azure-cli-2.75.0
+
       - uses: mikefarah/yq@v4.47.1
+
       - uses: geofffranks/spruce@v1.31.1
+
       - uses: Azure/azure-storage-azcopy@v10.29.1
+
       - uses: tfutils/tfenv@v3.0.0
+      
       - uses: kubernetes/kubernetes@v1.28.3
-      - uses: helm/helm@v3.18.4
+      
+      - uses: helm/helm@v3.18.6
+
       - uses: Azure/kubelogin@v0.2.10
+
       - uses: pulumi/pulumi@v3.187.0
+
       # ci/bicep-cli.yml:
       - uses: docker/cli@v24.0.6
