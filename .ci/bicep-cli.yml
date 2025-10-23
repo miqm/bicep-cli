@@ -52,6 +52,16 @@ jobs:
           PYTHON_TAG: "python3.12-trixie"
           PYTHON_TAG2: "python3.12"
           LATEST: "latest"
+        Python3_13_trixie:
+          PYTHON_VERSION: "3.13-slim-trixie"
+          PYTHON_TAG: "python3.13-trixie"
+          PYTHON_TAG2: "python3.13"
+          LATEST: ""
+        Python3_14_trixie:
+          PYTHON_VERSION: "3.14-slim-trixie"
+          PYTHON_TAG: "python3.14-trixie"
+          PYTHON_TAG2: "python3.14"
+          LATEST: ""
     ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
       displayName: Publish
     ${{ else }}:
@@ -106,15 +116,36 @@ jobs:
           echo "##vso[task.setvariable variable=tag3_3]$(VERSION3)"
         displayName: Set tags 3
         condition: ne(variables['LATEST'], '')
+      - task: Docker@2
+        displayName: Build
+        inputs:
+          command: build
+          containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
+          repository: miqm/bicep-cli
+          Dockerfile: Dockerfile
+          arguments: --build-arg PYTHON_VERSION=$(PYTHON_VERSION)
+          tags: |
+            $(tag0_1)
+            $(tag1_1)
+            $(tag2_1)
+            $(tag3_1)
+            $(tag0_2)
+            $(tag1_2)
+            $(tag2_2)
+            $(tag3_2)
+            $(tag0_3)
+            $(tag1_3)
+            $(tag2_3)
+            $(tag3_3)
+          addPipelineData: false
+          addBaseImageData: false
       - ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
           - task: Docker@2
-            displayName: Build and Push
+            displayName: Push
             inputs:
-              command: buildAndPush
+              command: push
               containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
               repository: miqm/bicep-cli
-              Dockerfile: Dockerfile
-              arguments: --build-arg PYTHON_VERSION=$(PYTHON_VERSION)
               tags: |
                 $(tag0_1)
                 $(tag1_1)
@@ -128,29 +159,3 @@ jobs:
                 $(tag1_3)
                 $(tag2_3)
                 $(tag3_3)
-              addPipelineData: false
-              addBaseImageData: false
-      - ${{ else }}:
-          - task: Docker@2
-            displayName: Build
-            inputs:
-              command: build
-              containerRegistry: 431f8689-26bb-4f69-a9b3-aeb8982ee1ae
-              repository: miqm/bicep-cli
-              Dockerfile: Dockerfile
-              arguments: --build-arg PYTHON_VERSION=$(PYTHON_VERSION)
-              tags: |
-                $(tag0_1)
-                $(tag1_1)
-                $(tag2_1)
-                $(tag3_1)
-                $(tag0_2)
-                $(tag1_2)
-                $(tag2_2)
-                $(tag3_2)
-                $(tag0_3)
-                $(tag1_3)
-                $(tag2_3)
-                $(tag3_3)
-              addPipelineData: false
-              addBaseImageData: false
