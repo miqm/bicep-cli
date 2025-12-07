@@ -29,7 +29,7 @@ jobs:
       
       - uses: helm/helm@v3.19.2
 
-      - uses: Azure/kubelogin@v0.2.12
+      - uses: Azure/kubelogin@v0.2.13
 
       - uses: pulumi/pulumi@v3.203.0
 
