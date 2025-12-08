@@ -13,7 +13,7 @@ jobs:
     name: UpdateDockerfile
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-python@v6

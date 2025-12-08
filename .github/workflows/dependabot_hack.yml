@@ -15,9 +15,9 @@ jobs:
       # Dockerfile:
       - uses: azure/bicep@v0.39.26
 
-      - uses: azure/azure-cli@azure-cli-2.79.0
+      - uses: azure/azure-cli@azure-cli-2.81.0
 
-      - uses: mikefarah/yq@v4.48.1
+      - uses: mikefarah/yq@v4.49.2
 
       - uses: geofffranks/spruce@v1.31.1
 
@@ -27,9 +27,9 @@ jobs:
       
       - uses: kubernetes/kubernetes@v1.28.3
       
-      - uses: helm/helm@v3.19.0
+      - uses: helm/helm@v3.19.2
 
-      - uses: Azure/kubelogin@v0.2.12
+      - uses: Azure/kubelogin@v0.2.13
 
       - uses: pulumi/pulumi@v3.210.0
 
