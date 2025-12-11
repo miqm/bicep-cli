@@ -27,7 +27,7 @@ jobs:
       
       - uses: kubernetes/kubernetes@v1.28.3
       
-      - uses: helm/helm@v3.19.2
+      - uses: helm/helm@v3.19.3
 
       - uses: Azure/kubelogin@v0.2.13
 
