@@ -31,7 +31,7 @@ jobs:
 
       - uses: Azure/kubelogin@v0.2.13
 
-      - uses: pulumi/pulumi@v3.210.0
+      - uses: pulumi/pulumi@v3.211.0
 
       # ci/bicep-cli.yml:
       - uses: docker/cli@v24.0.6
