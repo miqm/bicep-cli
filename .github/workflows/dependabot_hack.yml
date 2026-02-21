@@ -21,13 +21,13 @@ jobs:
 
       - uses: geofffranks/spruce@v1.31.1
 
-      - uses: Azure/azure-storage-azcopy@v10.31.0
+      - uses: Azure/azure-storage-azcopy@v10.32.1
 
       - uses: tfutils/tfenv@v3.0.0
       
       - uses: kubernetes/kubernetes@v1.28.3
       
-      - uses: helm/helm@v3.19.2
+      - uses: helm/helm@v3.20.0
 
       - uses: Azure/kubelogin@v0.2.14
 
