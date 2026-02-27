@@ -25,7 +25,7 @@ ARG KUBECTL_VERSION=1.28.3
 
 ARG KUBELOGIN_VERSION=0.2.15
 
-ARG PULUMI_VERSION=3.223.0
+ARG PULUMI_VERSION=3.224.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ssh ca-certificates jq curl openssl perl git zip unzip less bash-completion apt-transport-https lsb-release gnupg wget busybox bc iputils-tracepath iputils-ping \
