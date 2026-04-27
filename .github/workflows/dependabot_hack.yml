@@ -23,7 +23,7 @@ jobs:
 
       - uses: Azure/azure-storage-azcopy@v10.32.3
 
-      - uses: tfutils/tfenv@v3.0.0
+      - uses: tfutils/tfenv@v3.2.0
       
       - uses: kubernetes/kubernetes@v1.28.3
       
