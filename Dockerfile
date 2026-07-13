@@ -35,7 +35,12 @@ RUN apt-get update \
     && curl -o /usr/local/bin/spruce -L https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERSION}/spruce-linux-amd64 && chmod +x /usr/local/bin/spruce \
     && mkdir -p /usr/local/lib/tfenv && curl -o /tmp/tfenv.tar.gz -L https://github.com/tfutils/tfenv/archive/refs/tags/v${TFENV_VERSION}.tar.gz \
     && tar -zxf /tmp/tfenv.tar.gz -C /usr/local/lib/tfenv --strip-components=1 && rm /tmp/tfenv.tar.gz && ln -s /usr/local/lib/tfenv/bin/* /usr/local/bin/ && tfenv install && tfenv use \
-    && curl -fsSL https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -o /tmp/helm.tar.gz && tar -zxf /tmp/helm.tar.gz -C /tmp --strip-components=1 && mv /tmp/helm /usr/local/bin/helm && rm /tmp/* \    
+    && curl -fsSL -o /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \
+    && curl -fsSL -o /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum \
+    && (cd /tmp && sha256sum -c helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum) \
+    && tar -zxf /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz -C /tmp \
+    && mv /tmp/linux-amd64/helm /usr/local/bin/helm \
+    && rm -rf /tmp/linux-amd64 /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum \
     && curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ bookworm main" | tee /etc/apt/sources.list.d/azure-cli.list \
     && echo "deb [arch=amd64] https://packages.microsoft.com/debian/12/prod/ bookworm main" | tee /etc/apt/sources.list.d/microsoft-prod.list \
