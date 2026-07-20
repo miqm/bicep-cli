@@ -21,7 +21,7 @@ jobs:
 
       - uses: geofffranks/spruce@v1.35.11
 
-      - uses: Azure/azure-storage-azcopy@v10.32.4
+      - uses: Azure/azure-storage-azcopy@v10.32.6
 
       - uses: tfutils/tfenv@v3.2.2
       
