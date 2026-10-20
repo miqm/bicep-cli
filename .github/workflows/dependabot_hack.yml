@@ -19,7 +19,7 @@ jobs:
 
       - uses: mikefarah/yq@v4.54.1
 
-      - uses: geofffranks/spruce@v1.35.22
+      - uses: geofffranks/spruce@v1.35.23
 
       - uses: Azure/azure-storage-azcopy@v10.32.8
 
