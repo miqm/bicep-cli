@@ -17,7 +17,7 @@ jobs:
 
       - uses: azure/azure-cli@azure-cli-2.91.0
 
-      - uses: mikefarah/yq@v4.54.1
+      - uses: mikefarah/yq@v4.54.3
 
       - uses: geofffranks/spruce@v1.35.27
 
